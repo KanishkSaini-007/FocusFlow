@@ -1,1 +1,149 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111410"><meta name="description" content="A quiet place for focused work. Pomodoro cycles, session history, and streaks, privately in your browser."><title>FocusFlow - Find your rhythm</title><link rel="stylesheet" href="style.css"></head><body><div class="shell"><header><a class="brand" href="./"><span class="logo">◔</span> FocusFlow<span class="tag">BETA</span></a><span class="privacy"><i></i> Local-first. Just you.</span></header><main><div class="intro"><p class="eyebrow">LESS NOISE. MORE FLOW.</p><h1>Make room for<br><span>your best work.</span></h1><p>One intention. One session. A little closer.</p></div><div class="workspace"><section class="timer-card" aria-label="Focus timer"><div class="tabs"><button data-mode="focus" class="selected">Focus</button><button data-mode="short">Short break</button><button data-mode="long">Long break</button></div><div class="dial"><svg viewBox="0 0 300 300" aria-hidden="true"><circle class="track" cx="150" cy="150" r="137"/><circle id="progress" cx="150" cy="150" r="137"/></svg><div class="dial-text"><span id="phase">TIME TO FOCUS</span><strong id="clock">25:00</strong><small id="cycle">Session 1 of 4</small></div></div><label class="intention">What are you working on?<input id="task" maxlength="80" placeholder="Give this session a purpose"></label><div class="controls"><button class="icon" id="reset" aria-label="Reset timer">↺</button><button id="start" class="primary">Start focusing <span>▶</span></button><button class="icon" id="skip" aria-label="Skip to next phase">⇥</button></div><p class="hint">Space to start or pause · Breaks are earned, not rushed</p><p id="notice" role="status" aria-live="polite"></p></section><aside><section class="panel"><div class="section-head"><h2>Your rhythm</h2><span class="chip">THIS WEEK</span></div><div class="stats"><div><strong id="today">0</strong><span>minutes today</span></div><div><strong id="week">0</strong><span>minutes this week</span></div></div><div id="bars" class="bars" aria-label="Daily focus minutes this week"></div><div class="streak"><span>✦ <b id="streak">0-day streak</b></span><small>Show up, then repeat.</small></div></section><section class="panel settings"><div class="section-head"><h2>Your pace</h2><span class="muted">minutes</span></div><form id="settings"><div class="lengths"><label>Focus<input type="number" id="focus-length" min="1" max="120" required></label><label>Short break<input type="number" id="short-length" min="1" max="60" required></label><label>Long break<input type="number" id="long-length" min="1" max="60" required></label></div><button class="secondary" type="submit">Save lengths</button></form><p>After four focus sessions, take a longer break. Each phase starts when you are ready.</p></section></aside></div><section class="panel history"><div class="section-head"><div><p class="eyebrow">THE SMALL WINS ADD UP</p><h2>Session journal</h2></div><div class="actions"><button id="demo" class="secondary">Try sample data</button><button id="clear" class="text-button">Clear history</button></div></div><div id="history"></div></section></main><footer><span>FocusFlow / A little progress, every day.</span><span>No account. No tracking. Stored on this device.</span></footer></div><script src="logic.js"></script><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#111410" />
+    <meta
+      name="description"
+      content="A quiet place for focused work. Pomodoro cycles, session history, and streaks, privately in your browser."
+    />
+    <title>FocusFlow - Find your rhythm</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <a class="brand" href="./"
+          ><span class="logo">◔</span> FocusFlow<span class="tag">BETA</span></a
+        ><span class="privacy"><i></i> Local-first. Just you.</span>
+      </header>
+      <main>
+        <div class="intro">
+          <p class="eyebrow">LESS NOISE. MORE FLOW.</p>
+          <h1>Make room for<br /><span>your best work.</span></h1>
+          <p>One intention. One session. A little closer.</p>
+        </div>
+        <div class="workspace">
+          <section class="timer-card" aria-label="Focus timer">
+            <div class="tabs">
+              <button data-mode="focus" class="selected">Focus</button
+              ><button data-mode="short">Short break</button
+              ><button data-mode="long">Long break</button>
+            </div>
+            <div class="dial">
+              <svg viewBox="0 0 300 300" aria-hidden="true">
+                <circle class="track" cx="150" cy="150" r="137" />
+                <circle id="progress" cx="150" cy="150" r="137" />
+              </svg>
+              <div class="dial-text">
+                <span id="phase">TIME TO FOCUS</span
+                ><strong id="clock">25:00</strong
+                ><small id="cycle">Session 1 of 4</small>
+              </div>
+            </div>
+            <label class="intention"
+              >What are you working on?<input
+                id="task"
+                maxlength="80"
+                placeholder="Give this session a purpose"
+            /></label>
+            <div class="controls">
+              <button class="icon" id="reset" aria-label="Reset timer">↺</button
+              ><button id="start" class="primary">
+                Start focusing <span>▶</span></button
+              ><button class="icon" id="skip" aria-label="Skip to next phase">
+                ⇥
+              </button>
+            </div>
+            <p class="hint">
+              Space to start or pause · Breaks are earned, not rushed
+            </p>
+            <p id="notice" role="status" aria-live="polite"></p>
+          </section>
+          <aside>
+            <section class="panel">
+              <div class="section-head">
+                <h2>Your rhythm</h2>
+                <span class="chip">THIS WEEK</span>
+              </div>
+              <div class="stats">
+                <div>
+                  <strong id="today">0</strong><span>minutes today</span>
+                </div>
+                <div>
+                  <strong id="week">0</strong><span>minutes this week</span>
+                </div>
+              </div>
+              <div
+                id="bars"
+                class="bars"
+                aria-label="Daily focus minutes this week"
+              ></div>
+              <div class="streak">
+                <span>✦ <b id="streak">0-day streak</b></span
+                ><small>Show up, then repeat.</small>
+              </div>
+            </section>
+            <section class="panel settings">
+              <div class="section-head">
+                <h2>Your pace</h2>
+                <span class="muted">minutes</span>
+              </div>
+              <form id="settings">
+                <div class="lengths">
+                  <label
+                    >Focus<input
+                      type="number"
+                      id="focus-length"
+                      min="1"
+                      max="120"
+                      required /></label
+                  ><label
+                    >Short break<input
+                      type="number"
+                      id="short-length"
+                      min="1"
+                      max="60"
+                      required /></label
+                  ><label
+                    >Long break<input
+                      type="number"
+                      id="long-length"
+                      min="1"
+                      max="60"
+                      required
+                  /></label>
+                </div>
+                <button class="secondary" type="submit">Save lengths</button>
+              </form>
+              <p>
+                After four focus sessions, take a longer break. Each phase
+                starts when you are ready.
+              </p>
+            </section>
+          </aside>
+        </div>
+        <section class="panel history">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">THE SMALL WINS ADD UP</p>
+              <h2>Session journal</h2>
+            </div>
+            <div class="actions">
+              <button id="demo" class="secondary">Try sample data</button
+              ><button id="clear" class="text-button">Clear history</button>
+            </div>
+          </div>
+          <div id="history"></div>
+        </section>
+      </main>
+      <footer>
+        <span>FocusFlow / A little progress, every day.</span
+        ><span>No account. No tracking. Stored on this device.</span>
+      </footer>
+    </div>
+    <script src="logic.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
