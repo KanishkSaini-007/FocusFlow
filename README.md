@@ -5,11 +5,7 @@ A quiet, local-first Pomodoro timer. Set an intention, give it your attention, a
 
 ## Preview
 
-![FocusFlow desktop with fictional sample sessions](3-desktop.png)
-<details><summary>Mobile screenshot</summary>
-
-![FocusFlow mobile](4-mobile.png)
-</details>
+![FocusFlow desktop with fictional sample sessions](8-preview.jpg)
 
 ## What it does
 - Focus, short-break and long-break modes with editable lengths.
@@ -36,7 +32,7 @@ The streak counts consecutive local-calendar days with completed sessions. An un
 ```sh
 node tests.js
 ```
-Eight dependency-free logic tests cover phase transitions, clock rounding, Monday-based totals, empty history, local date keys and streak continuity. Browser checks also exercise ticking, pause, settings, reload persistence and 390px / 320px overflow. Screenshots are real browser captures with fictional sample data, not mockups.
+Eight dependency-free logic tests cover phase transitions, clock rounding, Monday-based totals, empty history, local date keys and streak continuity. Browser checks also exercise ticking, pause, settings, reload persistence and 390px / 320px overflow. The preview is a real browser capture with fictional sample data, not mockups.
 
 ## Files
 - `index.html` - semantic single-page UI
@@ -44,7 +40,7 @@ Eight dependency-free logic tests cover phase transitions, clock rounding, Monda
 - `logic.js` - pure date, summary and timer helpers
 - `app.js` - UI events, timer lifecycle and local persistence
 - `tests.js` - Node assertion tests
-- `3-desktop.png`, `4-mobile.png` - real screenshots
+- `8-preview.jpg` - real desktop screenshot
 
 ## Privacy and limitations
 No analytics, network calls or sign-in. Data stays in this browser's local storage and is not synchronized across devices. Clearing site data clears the journal. Reloading resets the active timer, but keeps completed sessions and settings. The browser must stay open for a session to be recorded. This is a focus aid, not an alarm service: suspended devices may delay callbacks. There are no background notifications or audio alerts. Clock changes can affect an active timer. History shows the 30 most recent sessions; totals include all stored sessions.
