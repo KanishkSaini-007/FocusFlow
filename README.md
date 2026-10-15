@@ -1,11 +1,18 @@
 # FocusFlow
 
 ### Less noise. More flow.
+
+[Open FocusFlow](https://kanishksaini-007.github.io/FocusFlow/)
 A quiet, local-first Pomodoro timer. Set an intention, give it your attention, and watch the small wins add up.
 
 ## Preview
 
 ![FocusFlow desktop with fictional sample sessions](8-preview.jpg)
+
+<details><summary>Mobile screenshot</summary>
+
+![FocusFlow mobile](10-mobile-small.jpg)
+</details>
 
 ## What it does
 - Focus, short-break and long-break modes with editable lengths.
